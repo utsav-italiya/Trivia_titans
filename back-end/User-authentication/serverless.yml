@@ -1,0 +1,17 @@
+service: aws-auth-trivia
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  role: arn:aws:iam::262272685619:role/LabRole
+  timeout: 900
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: '*'
+      
+plugins:
+  - serverless-offline

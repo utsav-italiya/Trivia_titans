@@ -1,0 +1,17 @@
+service: notificatationpublisher
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: '*'
+    iam:
+    role: arn:aws:iam::262272685619:role/LabRole
+    
+plugins:
+  - serverless-offline
